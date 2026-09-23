@@ -212,7 +212,7 @@
         <div class="project-body">
           <ul class="highlights">
             <li><strong>The compiler enforces the boundary.</strong> The core package has no dependencies and
-              cannot import Firebase. Dependencies are injected at a composition root, with no singletons and one
+              cannot import Firebase. Dependencies are injected at a composition root, view models depend only on protocols, and there is one
               <code>LoadState</code> enum per app.</li>
             <li><strong>Structured concurrency throughout.</strong> The Firestore listener is wrapped in an
               <code>AsyncThrowingStream</code>. Optimistic likes are reconciled by the listener's echo, and
@@ -224,7 +224,7 @@
           </ul>
           <dl class="stats">
             <div><dt>2 · 4</dt><dd>apps · Swift packages</dd></div>
-            <div><dt>~1:1</dt><dd>test-to-code lines</dd></div>
+            <div><dt>62</dt><dd>package tests (Swift Testing)</dd></div>
             <div><dt>iOS 17+</dt><dd>Observation, no Combine</dd></div>
           </dl>
         </div>
