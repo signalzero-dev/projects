@@ -156,6 +156,31 @@
           and USDT-margined perpetual markets: an accumulation ladder, a higher-timeframe structure trader,
           short-timeframe scalpers, and a news monitor that can throttle or halt trading.
         </p>
+        <div class="gallery" aria-label="Trading bot screenshots">
+          <figure class="shot shot-lead">
+            <a href="img/trading/eth-long-2.jpg"><img src="img/trading/eth-long-2.jpg" width="1600" height="1000" loading="lazy"
+              alt="Trade visualizer: an ETHUSDT long on 15-minute candles with entry, stop-loss and take-profit lines, closed at take-profit for +2.30R"></a>
+            <figcaption>The trade visualizer I built for reviewing the bot's decisions: an ETHUSDT long plotted on the exchange's own 15-minute candles, with entry, stop, target and exit marked (+2.30R).</figcaption>
+          </figure>
+          <div class="shot-grid shot-grid-3">
+            <figure class="shot">
+              <a href="img/trading/eth-long-1.jpg"><img src="img/trading/eth-long-1-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="ETHUSDT long closed at take-profit for +1.24R"></a>
+              <figcaption>ETHUSDT long: take-profit hit, +1.24R.</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/trading/eth-short.jpg"><img src="img/trading/eth-short-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="ETHUSDT short closed at take-profit for +1.04R"></a>
+              <figcaption>ETHUSDT short: take-profit hit, +1.04R.</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/trading/btc-short.jpg"><img src="img/trading/btc-short-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="BTCUSDT short closed at take-profit for +1.40R"></a>
+              <figcaption>BTCUSDT short: take-profit hit, +1.40R.</figcaption>
+            </figure>
+          </div>
+          <p class="fine gallery-note">Winning trades from the bot's shadow (paper) ledger. These are simulated trades on live market data, not real-money fills. The list is filtered to wins. Results are shown in R, meaning multiples of the amount risked; amounts, position sizes and strategy names are masked.</p>
+        </div>
         <div class="project-body">
           <ul class="highlights">
             <li><strong>Safety gates that survive crashes.</strong> The circuit breaker, daily-loss cap and loss

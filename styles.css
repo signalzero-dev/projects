@@ -280,3 +280,4 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
 @media (min-width: 900px) { .shot-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .shot-grid { grid-template-columns: 1fr; } }
 .gallery-note { margin: 14px 0 0; }
+@media (min-width: 900px) { .shot-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
