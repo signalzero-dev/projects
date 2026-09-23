@@ -152,9 +152,10 @@
           <span class="badge badge-private">Private · walkthrough on request</span>
         </header>
         <p class="pitch">
-          Several strategies run as fault-isolated modules in one supervised process, trading live capital in spot
-          and USDT-margined perpetual markets: an accumulation ladder, a higher-timeframe structure trader,
-          short-timeframe scalpers, and a news monitor that can throttle or halt trading.
+          Futures strategies run as fault-isolated modules in one supervised process, trading live capital in
+          USDT-margined perpetual markets: a higher-timeframe structure trader, per-symbol short-timeframe scalpers,
+          and a news monitor that can throttle or halt trading. A spot accumulation ladder runs alongside it as a
+          separate app.
         </p>
         <div class="gallery" aria-label="Trading bot screenshots">
           <figure class="shot shot-lead">
@@ -197,7 +198,7 @@
               against golden files.</li>
           </ul>
           <dl class="stats">
-            <div><dt>4 → 1</dt><dd>repos consolidated into one supervised process</dd></div>
+            <div><dt>2 → 1</dt><dd>futures bots merged into one supervised process</dd></div>
             <div><dt>~27</dt><dd>architecture guard rules</dd></div>
             <div><dt>~250</dt><dd>test files</dd></div>
             <div><dt>~170</dt><dd>numbered design decisions</dd></div>
