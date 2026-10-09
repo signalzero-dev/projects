@@ -7,7 +7,7 @@ Plain HTML + CSS with no build step: `index.html`, `styles.css`, `favicon.svg`. 
 
 ## Content rules
 
-Three of the four showcased projects are private (one is client work). Before changing copy:
+Four of the five showcased projects have private source (one is client work; Pipeline Pulse is a public demo of a private repo, built for a client proposal whose prospect is never named). Before changing copy:
 
 - Every figure must trace to the source repo. Never state figures that can't be verified.
 - Never link to a private repo, and never publish hostnames, account IDs, P&L, strategy parameters, or client,

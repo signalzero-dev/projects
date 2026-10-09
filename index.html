@@ -43,13 +43,13 @@
         <a class="btn btn-primary" href="#projects">View case studies</a>
         <a class="btn" href="https://github.com/signalzero-dev" rel="me">GitHub</a>
       </div>
-      <p class="hero-note">Three of the four projects below are private (product or client work). I'm happy to walk through the source.</p>
+      <p class="hero-note">Four of the five projects below have private source (product, client or proposal work); one of those has a live demo. I'm happy to walk through the source.</p>
 
       <dl class="hero-stats">
-        <div><dt>~5,100</dt><dd>tests in the POS/accounting suite</dd></div>
+        <div><dt>6,000+</dt><dd>tests in the POS/accounting suite</dd></div>
         <div><dt>90–96%</dt><dd>mutation score on three core packages (Stryker)</dd></div>
-        <div><dt>34</dt><dd>architecture decision records</dd></div>
-        <div><dt>4</dt><dd>systems across web, desktop, iOS and trading</dd></div>
+        <div><dt>36</dt><dd>architecture decision records</dd></div>
+        <div><dt>5</dt><dd>systems across web, desktop, iOS and trading</dd></div>
       </dl>
     </section>
 
@@ -128,10 +128,10 @@
               desktop register that drives USB receipt printers natively.</li>
           </ul>
           <dl class="stats">
-            <div><dt>~5,100</dt><dd>tests</dd></div>
+            <div><dt>6,000+</dt><dd>tests</dd></div>
             <div><dt>90–96%</dt><dd>mutation score (domain, tax, core; scoped)</dd></div>
-            <div><dt>34</dt><dd>architecture decision records</dd></div>
-            <div><dt>175</dt><dd>hand-written SQL migrations</dd></div>
+            <div><dt>36</dt><dd>architecture decision records</dd></div>
+            <div><dt>181</dt><dd>hand-written SQL migrations</dd></div>
           </dl>
         </div>
         <ul class="chips" aria-label="Tech stack">
@@ -245,13 +245,53 @@
             <div><dt>441</dt><dd>database-backed tests, 0 skipped</dd></div>
             <div><dt>98</dt><dd>assertions in the backup/restore test</dd></div>
             <div><dt>29 min → 0</dt><dd>outage to no-downtime cutovers (first releases)</dd></div>
-            <div><dt>44</dt><dd>decision records</dd></div>
+            <div><dt>47</dt><dd>decision records</dd></div>
           </dl>
         </div>
         <ul class="chips" aria-label="Tech stack">
           <li>Next.js 13</li><li>tRPC</li><li>Prisma</li><li>PostgreSQL 15</li><li>NextAuth</li><li>Zod</li>
           <li>Tailwind</li><li>Vitest</li><li>shellcheck</li><li>Docker</li>
           <li>AWS (ECR · EC2 · SSM · S3 · CloudWatch)</li><li>Cloudflare Tunnel</li><li>GitHub Actions</li>
+        </ul>
+      </article>
+
+      <!-- Pipeline Pulse -->
+      <article class="project" aria-labelledby="p-pulse">
+        <header class="project-head">
+          <div>
+            <h3 id="p-pulse">Pipeline Pulse</h3>
+            <p class="project-sub">Recruiting-pipeline analytics dashboard</p>
+          </div>
+          <a class="badge badge-public" href="https://pipeline-pulse-sepia.vercel.app">Live demo ↗</a>
+        </header>
+        <p class="pitch">
+          A phone-friendly dashboard for a fictional recruiting agency, built as a demo for a client proposal.
+          It reads a Google Sheet of leads through a service account, cleans the data, and reports every pipeline
+          stage, rate and cost-per figure by week. Every name, email and number in it is generated, and the demo
+          logs in with one click as a viewer or a master.
+        </p>
+        <div class="project-body">
+          <ul class="highlights">
+            <li><strong>Messy data is counted, not dropped.</strong> People are deduped by normalized email, then
+              phone, across tabs, and test leads are excluded. Date serials, ISO strings and mixed day/month
+              formats are parsed, and the ones that can't be parsed are counted on a data-quality strip.</li>
+            <li><strong>Every event lands in its own week.</strong> Each stage counts in the Monday–Sunday
+              Pacific week of its own date (a blank one falls back, visibly, to the lead's creation date), across both DST transitions. The suite runs under three time
+              zones (Manila, UTC and London) so a time-zone bug can't hide behind the machine's clock.</li>
+            <li><strong>Money is exact.</strong> Ad spend is stored in integer cents, and cost-per figures use
+              BigInt half-up division. A zero denominator shows "no data", not a number.</li>
+            <li><strong>Roles and boundaries are enforced.</strong> Viewer and master roles ride on signed JWT
+              sessions; viewers see quiz results as pass/fail only. An import test parses the code and fails the
+              suite when a layer reaches outward, and credentials stay in server-only modules.</li>
+          </ul>
+          <dl class="stats">
+            <div><dt>1,049</dt><dd>tests, run under three time zones</dd></div>
+            <div><dt>Daily</dt><dd>cron reseeds the demo sheet</dd></div>
+          </dl>
+        </div>
+        <ul class="chips" aria-label="Tech stack">
+          <li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>zod</li><li>jose (JWT)</li>
+          <li>Google Sheets API</li><li>date-fns (tz)</li><li>Tailwind 4</li><li>Vitest</li><li>Vercel</li>
         </ul>
       </article>
 
@@ -321,7 +361,7 @@
           <div class="method">
             <span class="method-num" aria-hidden="true">03</span>
             <h3>Decisions are written down</h3>
-            <p>34 ADRs, ~170 numbered decisions and 44 decision records across the three private projects. Where
+            <p>36 ADRs, ~170 numbered decisions and 47 decision records across three of the private projects. Where
               docs state a status, a CI guard checks it against the code, so drift in guarded claims fails the
               build.</p>
           </div>
