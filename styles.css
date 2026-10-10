@@ -202,7 +202,7 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
 
 /* Method */
 .method-grid { display: grid; gap: 16px; }
-@media (min-width: 720px) { .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .method {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -235,23 +235,6 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
   font-size: 0.92rem; color: var(--muted);
 }
 .pipeline span { font-family: var(--mono); font-weight: 500; color: var(--accent); }
-
-.scorecard { margin: 40px 0 0; }
-.scorecard figcaption { font-weight: 600; margin-bottom: 14px; }
-.scorecard dl {
-  margin: 0;
-  display: grid; gap: 1px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-@media (min-width: 820px) { .scorecard dl { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.scorecard dl > div { background: var(--surface); padding: 18px 20px; }
-.scorecard dt { font-size: 1.6rem; font-weight: 700; }
-.scorecard dd { margin: 2px 0 0; color: var(--muted); font-size: 0.88rem; line-height: 1.4; }
-.scorecard .fine { margin: 10px 0 0; }
 
 /* Skills */
 .skills-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }

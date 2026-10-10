@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gino Alo — Projects</title>
-  <meta name="description" content="Gino Alo (signalzero-dev): full-stack engineer building ledgers, tax engines, trading automation and B2B integrations — test-first, mutation-tested, independently reviewed by agents.">
+  <meta name="description" content="Gino Alo (signalzero-dev): full-stack engineer. Point of sale and books, payroll and tax, invoice integrations and trading automation — software that handles money and records and keeps working when things go wrong. Case studies, screenshots and a live demo.">
   <meta property="og:title" content="Gino Alo — Projects">
-  <meta property="og:description" content="Systems where a silent bug costs money. Case studies in TypeScript, Rust and Swift.">
+  <meta property="og:description" content="Systems where a silent bug costs money. Case studies with screenshots and a live demo, in TypeScript, Rust and Swift.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://signalzero-dev.github.io/projects/">
   <meta name="color-scheme" content="light dark">
@@ -36,20 +36,23 @@
       <p class="eyebrow">Gino Alo · full-stack engineer</p>
       <h1>Systems where a silent bug costs money.</h1>
       <p class="lede">
-        Ledgers, tax engines, trading automation and B2B integrations in TypeScript, Rust and Swift —
-        built test-first, mutation-tested, and reviewed by an independent agent that didn't write the code.
+        I build the software a business runs on: point of sale and books, payroll and tax, invoice
+        integrations and trading automation. Built so a store on its own server keeps selling when the internet drops, a crash can't reset a loss limit,
+        and a release is a health-checked deploy with a rollback script, not a 29-minute outage. The tests
+        are the proof, not the pitch.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#projects">View case studies</a>
+        <a class="btn" href="https://pipeline-pulse-sepia.vercel.app">Try a live demo ↗</a>
         <a class="btn" href="https://github.com/signalzero-dev" rel="me">GitHub</a>
       </div>
       <p class="hero-note">Four of the five projects below have private source (product, client or proposal work); one of those has a live demo. I'm happy to walk through the source.</p>
 
       <dl class="hero-stats">
-        <div><dt>6,000+</dt><dd>tests in the POS/accounting suite</dd></div>
-        <div><dt>90–96%</dt><dd>mutation score on three core packages (Stryker)</dd></div>
-        <div><dt>36</dt><dd>architecture decision records</dd></div>
-        <div><dt>5</dt><dd>systems across web, desktop, iOS and trading</dd></div>
+        <div><dt>Since 2023</dt><dd>a client's invoicing app, built then and still run by me</dd></div>
+        <div><dt>Live</dt><dd>demo you can open now: one-click login, no sign-up</dd></div>
+        <div><dt>BIR requirements</dt><dd>POS designed to the Philippine tax authority's requirements; not yet accredited</dd></div>
+        <div><dt>6,000+</dt><dd>tests behind the POS and ledger; core packages mutation-tested</dd></div>
       </dl>
     </section>
 
@@ -70,9 +73,9 @@
           <span class="badge badge-private">Private · walkthrough on request</span>
         </header>
         <p class="pitch">
-          An offline-first POS, general ledger, inventory, purchasing and payroll in one codebase. It is
-          designed to the Philippine tax authority's (BIR's) technical requirements for accredited POS
-          software. It is not yet accredited. Built over about three months.
+          Point of sale, books, inventory, purchasing and payroll for Philippine retail, in one system. The
+          cashier rings sales, the Z-reading posts itself to the ledger, and every tax and payroll rule names the issuance it implements. Designed to the Philippine tax authority's (BIR's)
+          technical requirements for accredited POS software; not yet accredited. Built over about three months.
         </p>
         <div class="gallery" aria-label="Tinda screenshots">
           <figure class="shot shot-lead">
@@ -111,27 +114,25 @@
         </div>
         <div class="project-body">
           <ul class="highlights">
-            <li><strong>Tamper-evident books.</strong> Journals are append-only and hash-chained. Database triggers
-              reject UPDATE and DELETE, and a correction is a new adjustment document. The chain's tail lock is
-              tested with real concurrent writers against real Postgres: parallel writes, rollback
-              without a numbering gap, and deadlock-free lock ordering.</li>
-            <li><strong>Two pure statutory rules engines.</strong> One covers VAT, senior/PWD discounts and the
-              Z-reading cross-check. The other covers SSS, PhilHealth, Pag-IBIG and withholding tax, plus the 1601-C, 2316 and
-              Alphalist forms. Every rule cites its issuance and effective date, and the agencies' own worked
-              examples replay as golden fixtures.</li>
-            <li><strong>Offline-first by design.</strong> An in-store server with an optional mirror on each till.
-              Invoice numbers are gapless and come from reclaimable blocks the server issues. The transmission
-              outbox is written in the same transaction, and sale, payment, adjustment, AR/AP and reading
-              endpoints take an idempotency key.</li>
-            <li><strong>The architecture is enforced by tests.</strong> <code>core → db = 0</code>: a CI test fails the
-              build if the core imports the database layer. The same codebase ships as an on-prem appliance, a cloud deployment and a Tauri
-              desktop register that drives USB receipt printers natively.</li>
+            <li><strong>Books can't be quietly edited.</strong> Journals are append-only and hash-chained, the
+              database rejects UPDATE and DELETE, and a correction is a new adjustment document. This holds with
+              real concurrent writers against real Postgres: a rollback leaves no gap in the numbering.</li>
+            <li><strong>Every tax and payroll rule cites its source.</strong> VAT, senior/PWD discounts, SSS,
+              PhilHealth, Pag-IBIG and withholding tax, plus the 1601-C, 2316 and Alphalist forms. Each rule names
+              its issuance and effective date, and the agencies' own worked examples replay as test fixtures.</li>
+            <li><strong>With an in-store server, the store keeps selling through an internet outage.</strong> Tills talk to an in-store
+              server over the LAN, and invoice numbers stay gapless because they come from reclaimable blocks the
+              server issues. A per-till mirror for cloud installs is built and tested; its desktop wiring is in
+              progress. A retried sale or payment can't be recorded twice: the sale, payment, adjustment, AR/AP and reading endpoints take an idempotency key.</li>
+            <li><strong>Runs the way the store needs it.</strong> An on-prem box, a cloud deployment, or a desktop
+              register that drives USB receipt printers natively, all from one codebase. The business rules can't
+              depend on the database: a CI test fails the build if the core imports it.</li>
           </ul>
           <dl class="stats">
-            <div><dt>6,000+</dt><dd>tests</dd></div>
-            <div><dt>90–96%</dt><dd>mutation score (domain, tax, core; scoped)</dd></div>
-            <div><dt>36</dt><dd>architecture decision records</dd></div>
-            <div><dt>181</dt><dd>hand-written SQL migrations</dd></div>
+            <div><dt>3</dt><dd>ways to deploy: on-prem, cloud, desktop register</dd></div>
+            <div><dt>Gapless</dt><dd>invoice numbering from server-issued blocks</dd></div>
+            <div><dt>1601-C · 2316 · Alphalist</dt><dd>BIR payroll forms computed by the rules engine</dd></div>
+            <div><dt>6,000+</dt><dd>tests; 90–96% mutation score on the three core packages</dd></div>
           </dl>
         </div>
         <ul class="chips" aria-label="Tech stack">
@@ -139,6 +140,50 @@
           <li>NestJS 11</li><li>Fastify</li><li>zod</li><li>PostgreSQL 16</li><li>Drizzle</li><li>pglite</li>
           <li>Vitest</li><li>Playwright</li><li>Testcontainers</li><li>Stryker</li><li>pnpm monorepo</li>
           <li>GitHub Actions</li><li>Docker Compose</li>
+        </ul>
+      </article>
+
+      <!-- Distributor integration (anonymized client work) -->
+      <article class="project" aria-labelledby="p-dist">
+        <header class="project-head">
+          <div>
+            <h3 id="p-dist">Distributor invoicing → SFA integration</h3>
+            <p class="project-sub">Client work for a Philippine FMCG distributor (anonymized)</p>
+          </div>
+          <span class="badge badge-private">Client · private</span>
+        </header>
+        <p class="pitch">
+          An internal app the distributor's staff use to upload delivery invoices and returns to their
+          sales-force-automation platform. In production since 2023; characterization-tested and hardened in
+          2026 so an invoice can't upload twice, go missing, or be marked uploaded when it wasn't.
+        </p>
+        <div class="project-body">
+          <ul class="highlights">
+            <li><strong>An invoice can't be uploaded twice, or marked uploaded when it wasn't.</strong> Only owned, pending, unchanged
+              rows go out. Each invoice number can have only one active invoice across all users (matched
+              case-insensitively, with Postgres advisory locks). The upload lock is held across the remote call
+              with bounded timeouts, and invoices can't be edited while an upload is in flight.</li>
+            <li><strong>A release no longer means a 29-minute outage.</strong> A deploy script that had caused a 29-minute outage was
+              replaced by a health-checked deploy with a rollback script. Its first measured cutovers (105 s and
+              44 s) had no downtime; that was later traded for a smaller instance.</li>
+            <li><strong>Backups are proven restorable, not assumed.</strong> Nightly dumps go to S3 on systemd timers. A restore is
+              verified with per-table row counts and an md5 over the sorted rows, and it refuses to run with stale
+              helper scripts. The backup path has its own CI test.</li>
+            <li><strong>Cheaper to run and harder to get into.</strong> Moved off managed Postgres and down two instance sizes,
+              checking memory after each step. Access is SSM-only (no SSH), traffic comes in through a Cloudflare
+              Tunnel, images are pushed with an OIDC push-only role, and CI actions are pinned to commit SHAs.</li>
+          </ul>
+          <dl class="stats">
+            <div><dt>Since 2023</dt><dd>in production</dd></div>
+            <div><dt>29 min → 0</dt><dd>outage to no-downtime cutovers (first releases)</dd></div>
+            <div><dt>2 sizes</dt><dd>smaller instance after leaving managed Postgres</dd></div>
+            <div><dt>441</dt><dd>database-backed tests, 0 skipped</dd></div>
+          </dl>
+        </div>
+        <ul class="chips" aria-label="Tech stack">
+          <li>Next.js 13</li><li>tRPC</li><li>Prisma</li><li>PostgreSQL 15</li><li>NextAuth</li><li>Zod</li>
+          <li>Tailwind</li><li>Vitest</li><li>shellcheck</li><li>Docker</li>
+          <li>AWS (ECR · EC2 · SSM · S3 · CloudWatch)</li><li>Cloudflare Tunnel</li><li>GitHub Actions</li>
         </ul>
       </article>
 
@@ -152,10 +197,10 @@
           <span class="badge badge-private">Private · walkthrough on request</span>
         </header>
         <p class="pitch">
-          Futures strategies run as fault-isolated modules in one supervised process, trading live capital in
-          USDT-margined perpetual markets: a higher-timeframe structure trader, per-symbol short-timeframe scalpers,
-          and a news monitor that can throttle or halt trading. A spot accumulation ladder runs alongside it as a
-          separate app.
+          Futures strategies run as fault-isolated modules in one supervised process against a live exchange
+          account in USDT-margined perpetual markets: a higher-timeframe structure trader, per-symbol scalpers and
+          a news monitor that can throttle or halt trading. Order entry is a committed mode switch, off as of October 2026, so the process reconciles positions and trades on its shadow (paper) ledger. A spot
+          accumulation ladder runs alongside it as a separate app.
         </p>
         <div class="gallery" aria-label="Trading bot screenshots">
           <figure class="shot shot-lead">
@@ -184,74 +229,26 @@
         </div>
         <div class="project-body">
           <ul class="highlights">
-            <li><strong>Safety gates that survive crashes.</strong> The circuit breaker, daily-loss cap and loss
-              streak are rebuilt from the positions ledger on every restart, so a crash loop cannot reset them.
-              Boot reconciliation flags futures positions the database can't explain.</li>
-            <li><strong>A custom architecture linter (~27 rules)</strong> runs before every test run. Rules come from
-              real incidents. For example, after one trader read another's positions, "unscoped position read"
-              became a permanent rule.</li>
-            <li><strong>Shadow-first rollout.</strong> Unproven strategies trade on paper first, and a shadow
-              ledger records every rejected trade. Position size is always risk ÷ stop distance. The news monitor
-              fails open and acts only on corroborated signals. Rate limits and ban responses trigger backoff.</li>
-            <li><strong>Backtests run the live code.</strong> Backtests use the same logic and configs as
-              production. They were validated against recordings of the systems they replaced and are checked
-              against golden files.</li>
+            <li><strong>A crash can't reset the daily loss limit.</strong> The circuit breaker, daily-loss cap and
+              loss streak are rebuilt from the positions ledger on every restart. On boot, the bot flags any
+              futures position its database can't explain.</li>
+            <li><strong>Scalper strategies can run shadow-only first.</strong> A shadow ledger records their would-be trades and every rejected trade. Position size is always risk ÷ stop
+              distance, the news monitor acts only on corroborated signals, and rate limits trigger backoff.</li>
+            <li><strong>What you backtest is the code that runs.</strong> Backtests use the same logic and configs as
+              production, were validated against recordings of the systems they replaced, and are checked against
+              golden files.</li>
+            <li><strong>A mistake that happened once can't happen again.</strong> A custom linter (~27 rules) runs
+              before every test run, and each rule comes from a real incident. After one trader read another's
+              positions, "unscoped position read" became a permanent rule.</li>
           </ul>
           <dl class="stats">
             <div><dt>2 → 1</dt><dd>futures bots merged into one supervised process</dd></div>
-            <div><dt>~27</dt><dd>architecture guard rules</dd></div>
-            <div><dt>~250</dt><dd>test files</dd></div>
-            <div><dt>~170</dt><dd>numbered design decisions</dd></div>
+            <div><dt>~27</dt><dd>incident-derived guard rules, run before every test</dd></div>
           </dl>
         </div>
         <ul class="chips" aria-label="Tech stack">
           <li>TypeScript 5.9</li><li>Node 20 (no framework)</li><li>SQLite (WAL)</li><li>Jest 30</li>
           <li>Ports &amp; adapters</li><li>pm2</li><li>Linux VPS</li><li>node-cron</li><li>Discord / Telegram alerts</li>
-        </ul>
-      </article>
-
-      <!-- Distributor integration (anonymized client work) -->
-      <article class="project" aria-labelledby="p-dist">
-        <header class="project-head">
-          <div>
-            <h3 id="p-dist">Distributor invoicing → SFA integration</h3>
-            <p class="project-sub">Client work for a Philippine FMCG distributor (anonymized)</p>
-          </div>
-          <span class="badge badge-private">Client · private</span>
-        </header>
-        <p class="pitch">
-          An internal invoicing app that uploads delivery invoices and returns to the distributor's
-          sales-force-automation platform. It was built in 2023, then characterization-tested and hardened
-          in 2026. The goal: no duplicate invoice numbers, no lost uploads, and no invoice falsely marked as
-          uploaded.
-        </p>
-        <div class="project-body">
-          <ul class="highlights">
-            <li><strong>Uploads are idempotent and safe under concurrency.</strong> Only owned, pending, unchanged
-              rows go out. Each invoice number can have only one active invoice across all users (matched
-              case-insensitively, with Postgres advisory locks). The upload lock is held across the remote call
-              with bounded timeouts, and invoices can't be edited while an upload is in flight.</li>
-            <li><strong>From outage to cutover.</strong> A deploy script that had caused a 29-minute outage was
-              replaced by a health-checked deploy with a rollback script. Its first measured cutovers (105 s and
-              44 s) had no downtime; that was later traded for a smaller instance.</li>
-            <li><strong>Backups you can trust.</strong> Nightly dumps go to S3 on systemd timers. A restore is
-              verified with per-table row counts and an md5 over the sorted rows, and it refuses to run with stale
-              helper scripts. The backup path has its own CI test.</li>
-            <li><strong>Leaner and locked down.</strong> Moved off managed Postgres and down two instance sizes,
-              checking memory after each step. Access is SSM-only (no SSH), traffic comes in through a Cloudflare
-              Tunnel, images are pushed with an OIDC push-only role, and CI actions are pinned to commit SHAs.</li>
-          </ul>
-          <dl class="stats">
-            <div><dt>441</dt><dd>database-backed tests, 0 skipped</dd></div>
-            <div><dt>98</dt><dd>assertions in the backup/restore test</dd></div>
-            <div><dt>29 min → 0</dt><dd>outage to no-downtime cutovers (first releases)</dd></div>
-            <div><dt>47</dt><dd>decision records</dd></div>
-          </dl>
-        </div>
-        <ul class="chips" aria-label="Tech stack">
-          <li>Next.js 13</li><li>tRPC</li><li>Prisma</li><li>PostgreSQL 15</li><li>NextAuth</li><li>Zod</li>
-          <li>Tailwind</li><li>Vitest</li><li>shellcheck</li><li>Docker</li>
-          <li>AWS (ECR · EC2 · SSM · S3 · CloudWatch)</li><li>Cloudflare Tunnel</li><li>GitHub Actions</li>
         </ul>
       </article>
 
@@ -265,28 +262,29 @@
           <a class="badge badge-public" href="https://pipeline-pulse-sepia.vercel.app">Live demo ↗</a>
         </header>
         <p class="pitch">
-          A phone-friendly dashboard for a fictional recruiting agency, built as a demo for a client proposal.
-          It reads a Google Sheet of leads through a service account, cleans the data, and reports every pipeline
-          stage, rate and cost-per figure by week. Every name, email and number in it is generated, and the demo
-          logs in with one click as a viewer or a master.
+          A phone-friendly dashboard for a fictional recruiting agency, built as a demo for a client proposal: a
+          manager opens it and sees this week's pipeline, conversion rates and cost-per figures, read straight
+          from the team's Google Sheet. Every name, email and number is generated; log in with one click as a
+          viewer or a master.
         </p>
         <div class="project-body">
           <ul class="highlights">
-            <li><strong>Messy data is counted, not dropped.</strong> People are deduped by normalized email, then
+            <li><strong>Duplicate and malformed leads don't inflate the funnel.</strong> People are deduped by normalized email, then
               phone, across tabs, and test leads are excluded. Date serials, ISO strings and mixed day/month
               formats are parsed, and the ones that can't be parsed are counted on a data-quality strip.</li>
-            <li><strong>Every event lands in its own week.</strong> Each stage counts in the Monday–Sunday
+            <li><strong>This week's numbers mean this week.</strong> Each stage counts in the Monday–Sunday
               Pacific week of its own date (a blank one falls back, visibly, to the lead's creation date), across both DST transitions. The suite runs under three time
               zones (Manila, UTC and London) so a time-zone bug can't hide behind the machine's clock.</li>
-            <li><strong>Money is exact.</strong> Ad spend is stored in integer cents, and cost-per figures use
+            <li><strong>Cost-per figures are exact to the cent.</strong> Ad spend is stored in integer cents, and cost-per figures use
               BigInt half-up division. A zero denominator shows "no data", not a number.</li>
-            <li><strong>Roles and boundaries are enforced.</strong> Viewer and master roles ride on signed JWT
+            <li><strong>Viewers see only what they're allowed to.</strong> Viewer and master roles ride on signed JWT
               sessions; viewers see quiz results as pass/fail only. An import test parses the code and fails the
               suite when a layer reaches outward, and credentials stay in server-only modules.</li>
           </ul>
           <dl class="stats">
-            <div><dt>1,049</dt><dd>tests, run under three time zones</dd></div>
+            <div><dt>Live</dt><dd>one-click demo, no sign-up</dd></div>
             <div><dt>Daily</dt><dd>cron reseeds the demo sheet</dd></div>
+            <div><dt>1,049</dt><dd>tests, run under three time zones</dd></div>
           </dl>
         </div>
         <ul class="chips" aria-label="Tech stack">
@@ -305,22 +303,21 @@
           <a class="badge badge-public" href="https://github.com/signalzero-dev/agentic-coding-ios-swift-portfolio">Public repo ↗</a>
         </header>
         <p class="pitch">
-          <strong>MovieBrowser</strong> is a TMDB client with a paginated list, debounced search and a detail
-          screen. <strong>SocialFeed</strong> uses Firebase for auth, a real-time Firestore feed, optimistic likes
-          and image posts. Both apps are built on local Swift packages, and the compiler enforces the Firebase
-          boundary.
+          Two SwiftUI apps: <strong>MovieBrowser</strong> (search and browse TMDB) and <strong>SocialFeed</strong>
+          (sign in, a feed that updates live, likes that show instantly, image posts). Built on Swift 6 packages
+          so the app logic never depends on Firebase.
         </p>
         <div class="project-body">
           <ul class="highlights">
-            <li><strong>The compiler enforces the boundary.</strong> The core package has no dependencies and
+            <li><strong>The app's logic never imports Firebase.</strong> The core package has no dependencies and
               cannot import Firebase. Dependencies are injected at a composition root, view models depend only on protocols, and there is one
               <code>LoadState</code> enum per app.</li>
-            <li><strong>Structured concurrency throughout.</strong> The Firestore listener is wrapped in an
+            <li><strong>The feed updates live and a like shows instantly.</strong> The Firestore listener is wrapped in an
               <code>AsyncThrowingStream</code>. Optimistic likes are reconciled by the listener's echo, and
               the packages compile in Swift 6 language mode with no Combine.</li>
-            <li><strong>Deterministic time.</strong> Search debounce uses task cancellation with an injected
+            <li><strong>Search waits for you to stop typing, and the test doesn't wait at all.</strong> Search debounce uses task cancellation with an injected
               <code>Clock</code>, so it is tested deterministically with a test clock.</li>
-            <li><strong>Hermetic UI tests.</strong> A stub network mode means UI tests need no network and no
+            <li><strong>UI tests run with no network and no secrets.</strong> A stub network mode means UI tests need no network and no
               token. CI runs <code>swift test</code> on the three dependency-free packages.</li>
           </ul>
           <dl class="stats">
@@ -340,48 +337,39 @@
     <section id="method" class="section section-alt" aria-labelledby="method-h">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">Working style &amp; discipline</p>
+          <p class="eyebrow">What working with me gets you</p>
           <h2 id="method-h">How I work</h2>
         </div>
         <div class="method-grid">
           <div class="method">
             <span class="method-num" aria-hidden="true">01</span>
-            <h3>Test first, adversary second</h3>
-            <p>Every change starts with a failing test, and I read the failure message before making it pass.
-              Test suites target the places bugs hide: boundaries, rounding, rollback, idempotency, tamper
-              detection and concurrency. Mutation testing checks the tests themselves. A green run doesn't count
-              as evidence until I've seen that same check go red.</p>
+            <h3>Fewer surprises after launch</h3>
+            <p>Every change starts with a failing test, aimed at the places bugs hide: rounding, rollback,
+              retries, tampering and two people doing the same thing at once. In the POS, mutation testing checks that the tests would actually catch a bug, so a green run means something.</p>
           </div>
           <div class="method">
             <span class="method-num" aria-hidden="true">02</span>
-            <h3>Machines enforce the boundaries</h3>
-            <p>Tinda's CI fails if the core imports the database. The trading bot's ~27-rule linter runs before
-              the tests. The iOS core package can't import Firebase. If a rule matters, a machine enforces it.</p>
+            <h3>New features don't break what works</h3>
+            <p>If a rule matters, a machine enforces it: Tinda's build fails if the core imports the database, the
+              trading bot's linter runs before the tests, and the iOS core can't import Firebase. Code that moves
+              or decides money gets the hardest checks; everything else is checked lightly, on purpose.</p>
           </div>
           <div class="method">
             <span class="method-num" aria-hidden="true">03</span>
-            <h3>Decisions are written down</h3>
-            <p>36 ADRs, ~170 numbered decisions and 47 decision records across three of the private projects. Where
-              docs state a status, a CI guard checks it against the code, so drift in guarded claims fails the
-              build.</p>
-          </div>
-          <div class="method">
-            <span class="method-num" aria-hidden="true">04</span>
-            <h3>Depth by consequence</h3>
-            <p>Code that moves money, decides an amount, or writes a record that an amount is later read from
-              gets the hardest gates. Everything else is gated lightly, and I record that call, so a light gate is
-              a decision rather than an oversight.</p>
+            <h3>A paper trail you can audit</h3>
+            <p>Each of the three larger private projects keeps a numbered decision log, so the next developer knows why the code is the way it
+              is. Where docs state a status, a CI check compares it against the code, so a stale guarded claim fails the build.</p>
           </div>
         </div>
 
         <div class="agents">
           <div class="agents-copy">
             <h3>I run AI coding agents like a team, with gates I designed</h3>
-            <p>A planner attacks the brief before any code exists. An implementer works test-first. An
+            <p>A planner attacks the brief before any code exists, an implementer works test-first, and an
               independent adversary tries to break the change. Nothing merges when only its author has reviewed
-              it.</p>
-            <p>I own the architecture, the test strategy, the decision log and the final review. The agents do
-              the typing, and I measure what each role costs.</p>
+              it. I own the architecture, the test strategy and the final review; the agents do the typing.</p>
+            <p class="fine">Over the last four weeks I logged 201 of these slices; 2 of the 89 with a recorded
+              outcome were reverted (self-logged, so a lower bound).</p>
           </div>
           <ol class="pipeline" aria-label="Change pipeline">
             <li><span>Plan</span> the brief is attacked before code</li>
@@ -391,17 +379,6 @@
             <li><span>Docs</span> status is updated in the same change</li>
           </ol>
         </div>
-
-        <figure class="scorecard">
-          <figcaption>My slice log, last four weeks, across all projects</figcaption>
-          <dl>
-            <div><dt>201</dt><dd>slices logged</dd></div>
-            <div><dt>330+</dt><dd>defects caught at the design gate, before code existed</dd></div>
-            <div><dt>240+</dt><dd>more caught at independent review</dd></div>
-            <div><dt>2 of 89</dt><dd>slices with a recorded outcome were reverted</dd></div>
-          </dl>
-          <p class="fine">Self-logged. Some entries are incomplete, so the figures are lower bounds.</p>
-        </figure>
       </div>
     </section>
 

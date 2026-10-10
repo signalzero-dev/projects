@@ -13,5 +13,7 @@ Four of the five showcased projects have private source (one is client work; Pip
 - Never link to a private repo, and never publish hostnames, account IDs, P&L, strategy parameters, or client,
   principal or vendor names. The distributor project stays anonymized.
 - Tinda is designed to the BIR's requirements. It is **not** accredited, so never claim it is.
+- Tinda is not in use at any store, and its per-till offline mirror is not wired up yet. Store-level offline (an in-store server) is the shipped path.
+- The trading bot's order entry is off (`tradingEnabled: false` in `traders.config.ts`). Re-check that before making any real-money claim.
 
 Disclosure and content calls go to the `planner` agent (`.claude/agents/planner.md`).

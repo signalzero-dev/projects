@@ -1,7 +1,7 @@
 ---
 name: planner
 description: Decision seat for the portfolio site — content strategy, information architecture, claim accuracy, and public-disclosure calls (what may be said publicly about private or client repos). Adversarially reviews a risky change. The coordinator executes and reports; it does not decide alone.
-model: fable
+model: opus
 effort: high
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
