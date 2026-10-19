@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gino Alo — Projects</title>
+  <meta name="description" content="Gino Alo (signalzero-dev): full-stack engineer. Point of sale and books, payroll and tax, invoice integrations and trading automation — software that handles money and records and keeps working when things go wrong. Case studies, screenshots and a live demo.">
+  <meta property="og:title" content="Gino Alo — Projects">
+  <meta property="og:description" content="Systems where a silent bug costs money. Case studies with screenshots and a live demo, in TypeScript, Rust and Swift.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://signalzero-dev.github.io/projects/">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <header class="site-nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">◆</span> signalzero-dev</a>
+      <nav aria-label="Sections">
+        <a href="#projects">Projects</a>
+        <a href="#method">How I work</a>
+        <a href="#skills">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero wrap">
+      <p class="eyebrow">Gino Alo · full-stack engineer</p>
+      <h1>Systems where a silent bug costs money.</h1>
+      <p class="lede">
+        I build the software a business runs on: point of sale and books, payroll and tax, invoice
+        integrations and trading automation. Built so a store on its own server keeps selling when the internet drops, a crash can't reset a loss limit,
+        and a release is a health-checked deploy with a rollback script, not a 29-minute outage. The tests
+        are the proof, not the pitch.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View case studies</a>
+        <a class="btn" href="https://pipeline-pulse-sepia.vercel.app">Try a live demo ↗</a>
+        <a class="btn" href="https://github.com/signalzero-dev" rel="me">GitHub</a>
+      </div>
+      <p class="hero-note">Four of the five projects below have private source (product, client or proposal work); one of those has a live demo. I'm happy to walk through the source.</p>
+
+      <dl class="hero-stats">
+        <div><dt>Cebu Pacific</dt><dd>iOS developer on its commercial booking platform, 2019–2021</dd></div>
+        <div><dt>Since 2023</dt><dd>a client's invoicing app, built then and still run by me</dd></div>
+        <div><dt>BIR requirements</dt><dd>POS designed to the Philippine tax authority's requirements; not yet accredited</dd></div>
+        <div><dt>6,000+</dt><dd>tests behind the POS and ledger; core packages mutation-tested</dd></div>
+      </dl>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section wrap" aria-labelledby="projects-h">
+      <div class="section-head">
+        <p class="eyebrow">Case studies</p>
+        <h2 id="projects-h">Projects</h2>
+      </div>
+
+      <!-- Tinda -->
+      <article class="project" aria-labelledby="p-tinda">
+        <header class="project-head">
+          <div>
+            <h3 id="p-tinda">Tinda</h3>
+            <p class="project-sub">Point of sale and back office for Philippine retail</p>
+          </div>
+          <span class="badge badge-private">Private · walkthrough on request</span>
+        </header>
+        <p class="pitch">
+          Point of sale, books, inventory, purchasing and payroll for Philippine retail, in one system. The
+          cashier rings sales, the Z-reading posts itself to the ledger, and every tax and payroll rule names the issuance it implements. Designed to the Philippine tax authority's (BIR's)
+          technical requirements for accredited POS software; not yet accredited. Built over about three months.
+        </p>
+        <div class="gallery" aria-label="Tinda screenshots">
+          <figure class="shot shot-lead">
+            <a href="img/tinda/register.jpg"><img src="img/tinda/register.jpg" width="1600" height="1000" loading="lazy"
+              alt="Tinda register: a sale in progress with VAT-inclusive totals; the medicine line is VAT-exempt"></a>
+            <figcaption>Register: a sale in progress with VAT-inclusive totals. The medicine line is VAT-exempt, which shows up in the Z-reading's VAT-exempt total.</figcaption>
+          </figure>
+          <div class="shot-grid">
+            <figure class="shot">
+              <a href="img/tinda/z-reading.jpg"><img src="img/tinda/z-reading-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="End-of-day Z-reading showing gross and net sales, VAT breakdown, and expected versus counted cash"></a>
+              <figcaption>End-of-day Z-reading: the VAT breakdown and a drawer count that matches expected cash.</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/tinda/e-journal.jpg"><img src="img/tinda/e-journal-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="Manager reports session showing the e-Journal with consecutive gapless invoice numbers"></a>
+              <figcaption>A read-only reports session: the e-Journal with consecutive invoice numbers, a sequence-gap report and the statutory sales books.</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/tinda/gl-journal.jpg"><img src="img/tinda/gl-journal-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="Back office journal: the Z-reading posted as a balanced general-ledger entry"></a>
+              <figcaption>The Z-reading posts itself to the general ledger as a balanced entry.</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/tinda/trial-balance.jpg"><img src="img/tinda/trial-balance-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="Back office trial balance marked Balanced with equal debit and credit totals"></a>
+              <figcaption>Trial balance: debits equal credits, and the screen shows "Balanced".</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/tinda/statutory-rates.jpg"><img src="img/tinda/statutory-rates-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="Payroll statutory rates table for SSS, PhilHealth, Pag-IBIG and withholding tax with effective dates"></a>
+              <figcaption>Payroll: SSS, PhilHealth, Pag-IBIG and withholding-tax rates, each with its effective date.</figcaption>
+            </figure>
+          </div>
+          <p class="fine gallery-note">Screens from a local demo run with a fictional store and seeded data. Click any image for full size.</p>
+        </div>
+        <div class="project-body">
+          <ul class="highlights">
+            <li><strong>Books can't be quietly edited.</strong> Journals are append-only and hash-chained, the
+              database rejects UPDATE and DELETE, and a correction is a new adjustment document. This holds with
+              real concurrent writers against real Postgres: a rollback leaves no gap in the numbering.</li>
+            <li><strong>Every tax and payroll rule cites its source.</strong> VAT, senior/PWD discounts, SSS,
+              PhilHealth, Pag-IBIG and withholding tax, plus the 1601-C, 2316 and Alphalist forms. Each rule names
+              its issuance and effective date, and the agencies' own worked examples replay as test fixtures.</li>
+            <li><strong>With an in-store server, the store keeps selling through an internet outage.</strong> Tills talk to an in-store
+              server over the LAN, and invoice numbers stay gapless because they come from reclaimable blocks the
+              server issues. A per-till mirror for cloud installs is built and tested; its desktop wiring is in
+              progress. A retried sale or payment can't be recorded twice: the sale, payment, adjustment, AR/AP and reading endpoints take an idempotency key.</li>
+            <li><strong>Runs the way the store needs it.</strong> An on-prem box, a cloud deployment, or a desktop
+              register that drives USB receipt printers natively, all from one codebase. The business rules can't
+              depend on the database: a CI test fails the build if the core imports it.</li>
+          </ul>
+          <dl class="stats">
+            <div><dt>3</dt><dd>ways to deploy: on-prem, cloud, desktop register</dd></div>
+            <div><dt>Gapless</dt><dd>invoice numbering from server-issued blocks</dd></div>
+            <div><dt>1601-C · 2316 · Alphalist</dt><dd>BIR payroll forms computed by the rules engine</dd></div>
+            <div><dt>6,000+</dt><dd>tests; 90–96% mutation score on the three core packages</dd></div>
+          </dl>
+        </div>
+        <ul class="chips" aria-label="Tech stack">
+          <li>TypeScript (strict)</li><li>Rust</li><li>Tauri 2</li><li>React 18</li><li>Vite</li>
+          <li>NestJS 11</li><li>Fastify</li><li>zod</li><li>PostgreSQL 16</li><li>Drizzle</li><li>pglite</li>
+          <li>Vitest</li><li>Playwright</li><li>Testcontainers</li><li>Stryker</li><li>pnpm monorepo</li>
+          <li>GitHub Actions</li><li>Docker Compose</li>
+        </ul>
+      </article>
+
+      <!-- Distributor integration (anonymized client work) -->
+      <article class="project" aria-labelledby="p-dist">
+        <header class="project-head">
+          <div>
+            <h3 id="p-dist">Distributor invoicing → SFA integration</h3>
+            <p class="project-sub">Client work for a Philippine FMCG distributor (anonymized)</p>
+          </div>
+          <span class="badge badge-private">Client · private</span>
+        </header>
+        <p class="pitch">
+          An internal app the distributor's staff use to upload delivery invoices and returns to their
+          sales-force-automation platform. In production since 2023; characterization-tested and hardened in
+          2026 so an invoice can't upload twice, go missing, or be marked uploaded when it wasn't.
+        </p>
+        <div class="project-body">
+          <ul class="highlights">
+            <li><strong>An invoice can't be uploaded twice, or marked uploaded when it wasn't.</strong> Only owned, pending, unchanged
+              rows go out. Each invoice number can have only one active invoice across all users (matched
+              case-insensitively, with Postgres advisory locks). The upload lock is held across the remote call
+              with bounded timeouts, and invoices can't be edited while an upload is in flight.</li>
+            <li><strong>A release no longer means a 29-minute outage.</strong> A deploy script that had caused a 29-minute outage was
+              replaced by a health-checked deploy with a rollback script. Its first measured cutovers (105 s and
+              44 s) had no downtime; that was later traded for a smaller instance.</li>
+            <li><strong>Backups are proven restorable, not assumed.</strong> Nightly dumps go to S3 on systemd timers. A restore is
+              verified with per-table row counts and an md5 over the sorted rows, and it refuses to run with stale
+              helper scripts. The backup path has its own CI test.</li>
+            <li><strong>Cheaper to run and harder to get into.</strong> Moved off managed Postgres and down two instance sizes,
+              checking memory after each step. Access is SSM-only (no SSH), traffic comes in through a Cloudflare
+              Tunnel, images are pushed with an OIDC push-only role, and CI actions are pinned to commit SHAs.</li>
+          </ul>
+          <dl class="stats">
+            <div><dt>Since 2023</dt><dd>in production</dd></div>
+            <div><dt>29 min → 0</dt><dd>outage to no-downtime cutovers (first releases)</dd></div>
+            <div><dt>2 sizes</dt><dd>smaller instance after leaving managed Postgres</dd></div>
+            <div><dt>441</dt><dd>database-backed tests, 0 skipped</dd></div>
+          </dl>
+        </div>
+        <ul class="chips" aria-label="Tech stack">
+          <li>Next.js 13</li><li>tRPC</li><li>Prisma</li><li>PostgreSQL 15</li><li>NextAuth</li><li>Zod</li>
+          <li>Tailwind</li><li>Vitest</li><li>shellcheck</li><li>Docker</li>
+          <li>AWS (ECR · EC2 · SSM · S3 · CloudWatch)</li><li>Cloudflare Tunnel</li><li>GitHub Actions</li>
+        </ul>
+      </article>
+
+      <!-- Trading bot -->
+      <article class="project" aria-labelledby="p-bot">
+        <header class="project-head">
+          <div>
+            <h3 id="p-bot">Trading bot</h3>
+            <p class="project-sub">Supervised multi-strategy crypto trading</p>
+          </div>
+          <span class="badge badge-private">Private · walkthrough on request</span>
+        </header>
+        <p class="pitch">
+          Futures strategies run as fault-isolated modules in one supervised process against a live exchange
+          account in USDT-margined perpetual markets: a higher-timeframe structure trader, per-symbol scalpers and
+          a news monitor that can throttle or halt trading. Order entry is a committed mode switch, off as of October 2026, so the process reconciles positions and trades on its shadow (paper) ledger. A spot
+          accumulation ladder runs alongside it as a separate app.
+        </p>
+        <div class="gallery" aria-label="Trading bot screenshots">
+          <figure class="shot shot-lead">
+            <a href="img/trading/eth-long-2.jpg"><img src="img/trading/eth-long-2.jpg" width="1600" height="1000" loading="lazy"
+              alt="Trade visualizer: an ETHUSDT long on 15-minute candles with entry, stop-loss and take-profit lines, closed at take-profit for +2.30R"></a>
+            <figcaption>The trade visualizer I built for reviewing the bot's decisions: an ETHUSDT long plotted on the exchange's own 15-minute candles, with entry, stop, target and exit marked (+2.30R).</figcaption>
+          </figure>
+          <div class="shot-grid shot-grid-3">
+            <figure class="shot">
+              <a href="img/trading/eth-long-1.jpg"><img src="img/trading/eth-long-1-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="ETHUSDT long closed at take-profit for +1.24R"></a>
+              <figcaption>ETHUSDT long: take-profit hit, +1.24R.</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/trading/eth-short.jpg"><img src="img/trading/eth-short-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="ETHUSDT short closed at take-profit for +1.04R"></a>
+              <figcaption>ETHUSDT short: take-profit hit, +1.04R.</figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="img/trading/btc-short.jpg"><img src="img/trading/btc-short-thumb.jpg" width="640" height="400" loading="lazy"
+                alt="BTCUSDT short closed at take-profit for +1.40R"></a>
+              <figcaption>BTCUSDT short: take-profit hit, +1.40R.</figcaption>
+            </figure>
+          </div>
+          <p class="fine gallery-note">Winning trades from the bot's shadow (paper) ledger. These are simulated trades on live market data, not real-money fills. The list is filtered to wins. Results are shown in R, meaning multiples of the amount risked; amounts, position sizes and strategy names are masked.</p>
+        </div>
+        <div class="project-body">
+          <ul class="highlights">
+            <li><strong>A crash can't reset the daily loss limit.</strong> The circuit breaker, daily-loss cap and
+              loss streak are rebuilt from the positions ledger on every restart. On boot, the bot flags any
+              futures position its database can't explain.</li>
+            <li><strong>Scalper strategies can run shadow-only first.</strong> A shadow ledger records their would-be trades and every rejected trade. Position size is always risk ÷ stop
+              distance, the news monitor acts only on corroborated signals, and rate limits trigger backoff.</li>
+            <li><strong>What you backtest is the code that runs.</strong> Backtests use the same logic and configs as
+              production, were validated against recordings of the systems they replaced, and are checked against
+              golden files.</li>
+            <li><strong>A mistake that happened once can't happen again.</strong> A custom linter (~27 rules) runs
+              before every test run, and each rule comes from a real incident. After one trader read another's
+              positions, "unscoped position read" became a permanent rule.</li>
+          </ul>
+          <dl class="stats">
+            <div><dt>2 → 1</dt><dd>futures bots merged into one supervised process</dd></div>
+            <div><dt>~27</dt><dd>incident-derived guard rules, run before every test</dd></div>
+          </dl>
+        </div>
+        <ul class="chips" aria-label="Tech stack">
+          <li>TypeScript 5.9</li><li>Node 20 (no framework)</li><li>SQLite (WAL)</li><li>Jest 30</li>
+          <li>Ports &amp; adapters</li><li>pm2</li><li>Linux VPS</li><li>node-cron</li><li>Discord / Telegram alerts</li>
+        </ul>
+      </article>
+
+      <!-- Pipeline Pulse -->
+      <article class="project" aria-labelledby="p-pulse">
+        <header class="project-head">
+          <div>
+            <h3 id="p-pulse">Pipeline Pulse</h3>
+            <p class="project-sub">Recruiting-pipeline analytics dashboard</p>
+          </div>
+          <a class="badge badge-public" href="https://pipeline-pulse-sepia.vercel.app">Live demo ↗</a>
+        </header>
+        <p class="pitch">
+          A phone-friendly dashboard for a fictional recruiting agency, built as a demo for a client proposal: a
+          manager opens it and sees this week's pipeline, conversion rates and cost-per figures, read straight
+          from the team's Google Sheet. Every name, email and number is generated; log in with one click as a
+          viewer or a master.
+        </p>
+        <div class="project-body">
+          <ul class="highlights">
+            <li><strong>Duplicate and malformed leads don't inflate the funnel.</strong> People are deduped by normalized email, then
+              phone, across tabs, and test leads are excluded. Date serials, ISO strings and mixed day/month
+              formats are parsed, and the ones that can't be parsed are counted on a data-quality strip.</li>
+            <li><strong>This week's numbers mean this week.</strong> Each stage counts in the Monday–Sunday
+              Pacific week of its own date (a blank one falls back, visibly, to the lead's creation date), across both DST transitions. The suite runs under three time
+              zones (Manila, UTC and London) so a time-zone bug can't hide behind the machine's clock.</li>
+            <li><strong>Cost-per figures are exact to the cent.</strong> Ad spend is stored in integer cents, and cost-per figures use
+              BigInt half-up division. A zero denominator shows "no data", not a number.</li>
+            <li><strong>Viewers see only what they're allowed to.</strong> Viewer and master roles ride on signed JWT
+              sessions; viewers see quiz results as pass/fail only. An import test parses the code and fails the
+              suite when a layer reaches outward, and credentials stay in server-only modules.</li>
+          </ul>
+          <dl class="stats">
+            <div><dt>Live</dt><dd>one-click demo, no sign-up</dd></div>
+            <div><dt>Daily</dt><dd>cron reseeds the demo sheet</dd></div>
+            <div><dt>1,049</dt><dd>tests, run under three time zones</dd></div>
+          </dl>
+        </div>
+        <ul class="chips" aria-label="Tech stack">
+          <li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>zod</li><li>jose (JWT)</li>
+          <li>Google Sheets API</li><li>date-fns (tz)</li><li>Tailwind 4</li><li>Vitest</li><li>Vercel</li>
+        </ul>
+      </article>
+
+      <!-- iOS -->
+      <article class="project" aria-labelledby="p-ios">
+        <header class="project-head">
+          <div>
+            <h3 id="p-ios">Agentic Coding with Xcode</h3>
+            <p class="project-sub">Two SwiftUI apps on Swift 6 packages</p>
+          </div>
+          <a class="badge badge-public" href="https://github.com/signalzero-dev/agentic-coding-ios-swift-portfolio">Public repo ↗</a>
+        </header>
+        <p class="pitch">
+          Two SwiftUI apps: <strong>MovieBrowser</strong> (search and browse TMDB) and <strong>SocialFeed</strong>
+          (sign in, a feed that updates live, likes that show instantly, image posts). Built on Swift 6 packages
+          so the app logic never depends on Firebase.
+        </p>
+        <div class="project-body">
+          <ul class="highlights">
+            <li><strong>The app's logic never imports Firebase.</strong> The core package has no dependencies and
+              cannot import Firebase. Dependencies are injected at a composition root, view models depend only on protocols, and there is one
+              <code>LoadState</code> enum per app.</li>
+            <li><strong>The feed updates live and a like shows instantly.</strong> The Firestore listener is wrapped in an
+              <code>AsyncThrowingStream</code>. Optimistic likes are reconciled by the listener's echo, and
+              the packages compile in Swift 6 language mode with no Combine.</li>
+            <li><strong>Search waits for you to stop typing, and the test doesn't wait at all.</strong> Search debounce uses task cancellation with an injected
+              <code>Clock</code>, so it is tested deterministically with a test clock.</li>
+            <li><strong>UI tests run with no network and no secrets.</strong> A stub network mode means UI tests need no network and no
+              token. CI runs <code>swift test</code> on the three dependency-free packages.</li>
+          </ul>
+          <dl class="stats">
+            <div><dt>2 · 4</dt><dd>apps · Swift packages</dd></div>
+            <div><dt>62</dt><dd>package tests (Swift Testing)</dd></div>
+            <div><dt>iOS 17+</dt><dd>Observation, no Combine</dd></div>
+          </dl>
+        </div>
+        <ul class="chips" aria-label="Tech stack">
+          <li>Swift 6</li><li>SwiftUI</li><li>@Observable</li><li>Swift Testing</li><li>XCUITest</li><li>SPM</li>
+          <li>Firebase (Auth · Firestore · Storage)</li><li>Kingfisher</li><li>GitHub Actions</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Method -->
+    <section id="method" class="section section-alt" aria-labelledby="method-h">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What working with me gets you</p>
+          <h2 id="method-h">How I work</h2>
+        </div>
+        <div class="method-grid">
+          <div class="method">
+            <span class="method-num" aria-hidden="true">01</span>
+            <h3>Fewer surprises after launch</h3>
+            <p>Every change starts with a failing test, aimed at the places bugs hide: rounding, rollback,
+              retries, tampering and two people doing the same thing at once. In the POS, mutation testing checks that the tests would actually catch a bug, so a green run means something.</p>
+          </div>
+          <div class="method">
+            <span class="method-num" aria-hidden="true">02</span>
+            <h3>New features don't break what works</h3>
+            <p>If a rule matters, a machine enforces it: Tinda's build fails if the core imports the database, the
+              trading bot's linter runs before the tests, and the iOS core can't import Firebase. Code that moves
+              or decides money gets the hardest checks; everything else is checked lightly, on purpose.</p>
+          </div>
+          <div class="method">
+            <span class="method-num" aria-hidden="true">03</span>
+            <h3>A paper trail you can audit</h3>
+            <p>Each of the three larger private projects keeps a numbered decision log, so the next developer knows why the code is the way it
+              is. Where docs state a status, a CI check compares it against the code, so a stale guarded claim fails the build.</p>
+          </div>
+        </div>
+
+        <div class="agents">
+          <div class="agents-copy">
+            <h3>I run AI coding agents like a team, with gates I designed</h3>
+            <p>A planner attacks the brief before any code exists, an implementer works test-first, and an
+              independent adversary tries to break the change. Nothing merges when only its author has reviewed
+              it. I own the architecture, the test strategy and the final review; the agents do the typing.</p>
+            <p class="fine">Over the last four weeks I logged 201 of these slices; 2 of the 89 with a recorded
+              outcome were reverted (self-logged, so a lower bound).</p>
+          </div>
+          <ol class="pipeline" aria-label="Change pipeline">
+            <li><span>Plan</span> the brief is attacked before code</li>
+            <li><span>Red</span> a failing test, with the right failure message</li>
+            <li><span>Green</span> the smallest change that passes</li>
+            <li><span>Adversary</span> an independent reviewer tries to break it</li>
+            <li><span>Docs</span> status is updated in the same change</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section wrap" aria-labelledby="skills-h">
+      <div class="section-head">
+        <p class="eyebrow">Evidenced by the projects above</p>
+        <h2 id="skills-h">Skills &amp; stack</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul><li>TypeScript (strict)</li><li>Swift 6</li><li>SQL / PostgreSQL</li><li>Rust (Tauri shell)</li><li>Bash</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul><li>NestJS · Fastify</li><li>Framework-free Node services</li><li>Next.js · tRPC · Prisma</li><li>zod validation at boundaries</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>UI · desktop · mobile</h3>
+          <ul><li>React 18 · Vite</li><li>Tauri 2 + native printer bridge</li><li>Next.js · Tailwind</li><li>SwiftUI · Observation</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Data</h3>
+          <ul><li>PostgreSQL 15/16, hand-written migrations</li><li>pglite · Drizzle · Prisma</li><li>SQLite (WAL)</li><li>Firestore</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Testing</h3>
+          <ul><li>Vitest · Jest · Swift Testing</li><li>Playwright · XCUITest</li><li>Testcontainers (real Postgres)</li><li>Mutation testing (Stryker + hand-planted)</li><li>Characterization tests · golden fixtures</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Infra &amp; CI</h3>
+          <ul><li>GitHub Actions (sharded, OIDC, SHA-pinned)</li><li>Docker · Compose · GHCR · ECR</li><li>AWS EC2 · SSM · S3 · CloudWatch</li><li>Cloudflare Tunnel · pm2 · systemd</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Architecture</h3>
+          <ul><li>Clean Architecture with mechanical guards</li><li>Ports &amp; adapters · DI at the composition root</li><li>Append-only, hash-chained ledgers</li><li>Idempotency · offline-first sync</li><li>ADRs · custom static analysis</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Domain</h3>
+          <ul><li>PH VAT / POS rules and payroll statutory computation</li><li>Trading risk controls</li><li>B2B invoice integration</li><li>AI agent-team workflows</li></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p><strong>Gino Alo</strong> · <a href="https://github.com/signalzero-dev" rel="me">github.com/signalzero-dev</a></p>
+      <!-- Contact placeholder: add email / LinkedIn here deliberately; omit rather than leave a visible TODO. -->
+      <p class="fine">Contact details are on the resume that linked you here. Source for the private projects is available in a walkthrough.</p>
+    </div>
+  </footer>
+</body>
+</html>
